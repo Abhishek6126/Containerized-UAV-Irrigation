@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controller-sim
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: controller-sim
+  template:
+    metadata:
+      labels:
+        app: controller-sim
+    spec:
+      containers:
+        - name: controller-sim
+          image: abhishek6126/controller-sim:latest
+          imagePullPolicy: Always
+          env:
+            - name: MQTT_BROKER
+              value: "mosquitto-service"
+            - name: MQTT_PORT
+  	      value: "1883"

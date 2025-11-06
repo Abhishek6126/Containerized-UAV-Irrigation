@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor-sim
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sensor-sim
+  template:
+    metadata:
+      labels:
+        app: sensor-sim
+    spec:
+      containers:
+        - name: sensor-sim
+          image: abhishek6126/sensor-sim:latest
+          imagePullPolicy: Always
+          env:
+            - name: MQTT_BROKER
+              value: "mosquitto-service"
+            - name: MQTT_PORT
+  	      value: "1883"
