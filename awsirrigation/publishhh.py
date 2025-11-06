@@ -4,13 +4,13 @@ import random
 import time
 import math
 
-ENDPOINT = "a1zbyv0im1sc7i-ats.iot.eu-north-1.amazonaws.com"  # e.g., "a3k7odshaiipe8-ats.iot.us-east-1.amazonaws.com"
+ENDPOINT = "a1z1sc7i-ats.iot.eu-north-1.amazonaws.com"  # e.g., "a3k7odshaiipe8-ats.iot.us-east-1.amazonaws.com"
 CLIENT_ID = "SimulatedSensorClient"
 TOPIC = "sensor_data"
 
 CA_PATH = "./AmazonRootCA1.pem"
-CERT_PATH = "./492d64c2c5f15a2b43f54e8ef9898a12341c24b53a31ef49e0ffb7f4f99c0ca0-certificate.pem.crt"
-KEY_PATH = "./492d64c2c5f15a2b43f54e8ef9898a12341c24b53a31ef49e0ffb7f4f99c0ca0-private.pem.key"
+CERT_PATH = "./492db43f54e8ef9898a12341c24b53a31ef49e0ffb7f4f99c0ca0-certificate.pem.crt"
+KEY_PATH = "./492d64c2c5f15a2bf4f99c0ca0-private.pem.key"
 
 mqtt_client = AWSIoTMQTTClient(CLIENT_ID)
 mqtt_client.configureEndpoint(ENDPOINT, 8883)
@@ -46,3 +46,4 @@ for t in range(samples):
     time.sleep(interval)
 
 mqtt_client.disconnect()
+
